@@ -33,7 +33,6 @@ is_mean_or_std <- function(x){
 columns_to_keep <- Filter(is_mean_or_std, features$V2)
 columns_to_keep <- as.character(columns_to_keep)
 columns_to_keep <- append(columns_to_keep, c('Subject', 'ActivityId'))
-
 final_data <- final_data[,columns_to_keep]
 
 # Merge in the Activity labels with the ActivityIds
@@ -45,17 +44,23 @@ names(merged_final_data)[names(merged_final_data) == 'V2'] <- 'Activity'
 # Remove the ActivityId column
 merged_final_data$ActivityId <- NULL
 
-write.table(merged_final_data, "MeansAndStandardDeviations.txt", row.names=FALSE)
-
 # Make the final_data into a data table so we can more easily
 # do summarization on it
 library(data.table)
 final_table = data.table(merged_final_data)
-# Order the data to make it pretty
+
+# Order the data to make it pretty and 
+# move the Activity and Subject columns to the left to make it match 
+# the column order in our Codebook.
 final_table <- final_table[order(Activity, Subject)]
+cnames <- colnames(final_table)
+cnames <- c(cnames[81], cnames[80], cnames[0:79])
+setcolorder(final_table, cnames)
+write.table(final_table, "MeansAndStandardDeviations.txt", row.names=FALSE)
+
 
 # Summarize the table by subject and activity
 sum_table <- final_table[,lapply(.SD,mean),by=list(Activity, Subject)]
 
-# Write the data out to the 
+# Write the data out to the AverageMeansAndStandardDeviations.txt file.
 write.table(sum_table, "AverageMeansAndStandardDeviations.txt", row.names=FALSE)

@@ -3,20 +3,19 @@ Code Book
 
 This code book is valid for both the "MeansAndStandardDeviations.txt" and the "AverageMeansAndStandardDeviations.txt" output.
 
-The data come from the accelerometer and gyroscope to produce time domain signals (prefix 't' to denote time) and were  captured at a constant rate of 50 Hz. The acceleration signal was then separated into body and gravity acceleration signals (tBodyAcc-mean()-XYZ abd tBodyAcc-std()-XYZ and tGravityAcc-mean()-XYZ and tGravityAcc-std()-XYZ) using a low pass Butterworth filter with a corner frequency of 0.3 Hz.  Those columns denoted by "mean()" and the mean signals and those denoted by "std()" are the standard deviations of those measurements.
+The data come from the accelerometer and gyroscope to produce time domain signals (prefix 't' to denote time) and were  captured at a constant rate of 50 Hz. The acceleration signal was then separated into body and gravity acceleration signals (tBodyAcc-mean()-XYZ, tBodyAcc-std()-XYZ, tGravityAcc-mean()-XYZ and tGravityAcc-std()-XYZ) using a low pass Butterworth filter with a corner frequency of 0.3 Hz.  Those columns denoted by "mean()" are the mean signals and those denoted by "std()" are the standard deviations of those measurements.
 
-Subsequently, the body linear acceleration and angular velocity were derived in time to obtain Jerk signals (tGravityAcc-mean()-XYZ and tGravityAcc-std()-XYZ and tBodyGyroJerk-mean()-XYZ and tBodyGyroJerk-std()-XYZ). Also the magnitude of these three-dimensional signals were calculated using the Euclidean norm (tBodyAccMag, tGravityAccMag, tBodyAccJerkMag, tBodyGyroMag, tBodyGyroJerkMag). 
+Subsequently, the body linear acceleration and angular velocity were derived in time to obtain Jerk signals (tGravityAcc-mean()-XYZ, tGravityAcc-std()-XYZ, tBodyGyroJerk-mean()-XYZ and tBodyGyroJerk-std()-XYZ). Also the magnitude of these three-dimensional signals were calculated using the Euclidean norm (tBodyAccMag, tGravityAccMag, tBodyAccJerkMag, tBodyGyroMag, tBodyGyroJerkMag). 
 
 Finally a Fast Fourier Transform (FFT) was applied to some of these signals and the means and standard deviations were taken producing fBodyAcc-mean()-XYZ, fBodyAcc-std()-XYZ, fBodyAccJerk-mean()-XYZ, fBodyAccJerk-std()-XYZ, fBodyGyro-mean()-XYZ, fBodyGyro-std()-XYZ, fBodyAccJerkMag-mean(), fBodyAccJerkMag-std(), fBodyGyroMag-mean(), fBodyGyroMag-std(), fBodyGyroJerkMag-mean(), and fBodyGyroJerkMag-std(). (Note the 'f' to indicate frequency domain signals). 
 
-These signals were used to estimate variables of the vector for each pattern:  
-'-XYZ' is used to denote 3-axial signals in the X, Y and Z directions.
+'-XYZ' denoted above is used to denote 3-axial signals in the X, Y and Z directions.
 
 The Subject column denotes which of the 30 volunteers within an age bracket of 19-48 years is performing the activity.
 
 The Activity denotes the physical activity the subject is performing.
 
-The 81 columns are given below:
+The 81 columns (fully described above) are given in order below:
 
 1. Activity
 2. Subject
